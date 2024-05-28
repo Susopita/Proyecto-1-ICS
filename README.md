@@ -15,4 +15,4 @@ pip install pandas
 ```
 ## Informe
 
-El informe esta <a href="https://docs.google.com/document/d/14kG59EYdaUVBpdpk5i_GzLnLCNjrnrDHGaQLKlsp7-g/edit?usp=sharing" target="_blank" rel="noopener noreferrer">aqui</a>
+El informe esta <p><a href="https://docs.google.com/document/d/14kG59EYdaUVBpdpk5i_GzLnLCNjrnrDHGaQLKlsp7-g/edit?usp=sharing" target="_blank" rel="noopener noreferrer">aqui</a></p>
