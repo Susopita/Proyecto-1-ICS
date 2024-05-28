@@ -13,3 +13,6 @@ De todas formas por aqui les mando los comandos con la pip para que descarguen l
 pip install scikit-learn
 pip install pandas
 ```
+## Informe
+
+El informe esta [aqui](https://docs.google.com/document/d/14kG59EYdaUVBpdpk5i_GzLnLCNjrnrDHGaQLKlsp7-g/edit?usp=sharing)
