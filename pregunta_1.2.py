@@ -48,4 +48,20 @@ data_PCA_con_Headers = pd.DataFrame(data=data_PCA, columns=cabeceras)
 # Mostramos el nuevo DataFrame
 print(data_PCA_con_Headers.head(10))
 
-# Agrupa la data con kmenas XD sorry ahi lo dejo pa ti (borra luego esta linea)
+# Definimos el número de Clusters que deseamos 
+n_clusters = 5
+
+# Inicializamos el objeto KMeans
+kmeans= KMeans(n_clusters=n_clusters, random_state=0)
+
+# Entrenamos el modelo con los datos transformados por PCA 
+kmeans.fit(data_PCA)
+
+# Obtenemos las etiquetas de los clusters
+labels = kmeans.labels_
+
+#Agregamos las etiquetas de los clusters al DataFrame
+data_PCA_con_Headers['cluster']=labels
+
+#Mostramos el DataFrame con las etiquetas de los clusters
+print(data_PCA_con_Headers)
