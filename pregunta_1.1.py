@@ -13,7 +13,7 @@ print(data.columns)
 
 # Matriz TF-IDF
 
-# usamos unigramas y bigramas
+# usamos unigramas unicamente
 n_gramas = (1,1) 
 
 tfidf = TfidfVectorizer(ngram_range=n_gramas)
@@ -25,10 +25,11 @@ matrix_TFIDF = tfidf.fit_transform(data['texto'])
 print(f"Numero total de tokens: {len(tfidf.vocabulary_)}")
 
 # Mostramos los tokens ordenados
-print(f"Tokens: {tfidf.vocabulary_}")
+tokens = sorted(tfidf.vocabulary_)
+print(f"Tokens: {tokens}")
 
 # Mostramos la matriz TF-IDF con sus cabeceras
-matrix_TFIDF_limpia = pd.DataFrame(matrix_TFIDF.toarray(), columns=sorted(tfidf.vocabulary_))
+matrix_TFIDF_limpia = pd.DataFrame(matrix_TFIDF.toarray(), columns=tokens)
 
 print(matrix_TFIDF_limpia)
 
