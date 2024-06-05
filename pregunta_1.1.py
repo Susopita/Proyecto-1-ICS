@@ -13,19 +13,25 @@ print(data.columns)
 
 # Matriz TF-IDF
 
-# usamos unigramas unicamente
-n_gramas = (1,1) 
+# Convertir toda la columan a minusculas
 
-tfidf = TfidfVectorizer(ngram_range=n_gramas)
+# Convertir todos los elementos de la columna 'Columna' a minúsculas
+data.loc[:, 'moves'] = data['moves'].str.lower()
+
+# usamos unigramas y bigramas y el conjunto predeterminaod de stop words en ingles de sklearn
+n_gramas = (1,2) 
+
+tfidf = TfidfVectorizer(ngram_range=n_gramas, stop_words='english')
 
 # Generamos la matriz TF-IDF
-matrix_TFIDF = tfidf.fit_transform(data['texto'])
+matrix_TFIDF = tfidf.fit_transform(data['moves'])
 
 # Mostramos el numero total de tokens
 print(f"Numero total de tokens: {len(tfidf.vocabulary_)}")
 
 # Mostramos los tokens ordenados
 tokens = sorted(tfidf.vocabulary_)
+
 print(f"Tokens: {tokens}")
 
 # Mostramos la matriz TF-IDF con sus cabeceras
@@ -36,7 +42,7 @@ print(matrix_TFIDF_limpia)
 # Agrupamos las filas del nuevo DataFrame 
 k = 18
 
-km = KMeans(n_clusters=k, n_init=50)
+km = KMeans(n_clusters=k, n_init=10)
 grupos = km.fit_predict(matrix_TFIDF_limpia)
 
 # Juntar los grupos con la matriz TF-IDF y los nombres para poder analizar

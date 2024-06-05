@@ -52,7 +52,7 @@ matriz_TF_IDF = pd.DataFrame(matriz_TF_IDF.toarray(), columns=tokens)
 # Inicializamos K-Means
 k = 18
 
-km = KMeans(n_clusters=k, n_init=50)
+km = KMeans(n_clusters=k, n_init=10)
 grupos = km.fit_predict(matriz_TF_IDF)
 
 matriz_TF_IDF['grupos'] = grupos

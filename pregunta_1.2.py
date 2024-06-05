@@ -55,7 +55,7 @@ print(data_PCA_con_Headers.head(10))
 n_clusters = 5
 
 # Inicializamos el objeto KMeans
-kmeans= KMeans(n_clusters=n_clusters)
+kmeans= KMeans(n_clusters=n_clusters, n_init=10)
 
 # Entrenamos el modelo con los datos transformados por PCA 
 kmeans.fit(data_PCA)
