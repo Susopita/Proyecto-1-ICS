@@ -64,4 +64,4 @@ labels = kmeans.labels_
 data_PCA_con_Headers['cluster']=labels
 
 #Mostramos el DataFrame con las etiquetas de los clusters
-print(data_PCA_con_Headers)
+print(data_PCA_con_Headers.head(10))
