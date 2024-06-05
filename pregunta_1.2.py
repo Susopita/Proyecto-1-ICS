@@ -7,6 +7,9 @@ import numpy as np
 # Cargamos la data de la Parte 1
 data = pd.read_csv('matriz_TF_IDF_agrupada.csv')
 
+# Guardamos una copia de la columna 'Pokemon'
+pokemones = data['Pokemon']
+
 # Descartamos la columna 'grupos' y 'Pokemon'
 data.drop(columns=['Pokemon', 'grupos'], inplace=True)
 
@@ -52,7 +55,7 @@ print(data_PCA_con_Headers.head(10))
 n_clusters = 5
 
 # Inicializamos el objeto KMeans
-kmeans= KMeans(n_clusters=n_clusters, random_state=0)
+kmeans= KMeans(n_clusters=n_clusters)
 
 # Entrenamos el modelo con los datos transformados por PCA 
 kmeans.fit(data_PCA)
@@ -61,7 +64,11 @@ kmeans.fit(data_PCA)
 labels = kmeans.labels_
 
 #Agregamos las etiquetas de los clusters al DataFrame
-data_PCA_con_Headers['cluster']=labels
+data_PCA_con_Headers['clusters']=labels
+data_PCA_con_Headers['pokemon']=pokemones
 
 #Mostramos el DataFrame con las etiquetas de los clusters
 print(data_PCA_con_Headers.head(10))
+
+# Guardamos los datos en CSV para su interpretacion
+data_PCA_con_Headers.to_csv('matriz_PCA_agrupada.csv', index=False)
